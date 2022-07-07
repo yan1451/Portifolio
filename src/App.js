@@ -5,7 +5,7 @@ import { Button, Title, Header, SectionSkills, Div, Img, Section, Box, Span, Box
 
 function App() {
   const { dropDownRef, onClick, isActive } = useIndex();
-
+  document.title = 'Home - Yan Brasileiro'
   return (
     <>
       <Button onClick={onClick}> Menu </Button>
