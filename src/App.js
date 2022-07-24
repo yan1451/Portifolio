@@ -1,21 +1,48 @@
 import Typewriter from 'typewriter-effect';
 import { useIndex } from './Hooks/navBar';
-import { Button, Title, Header, SectionSkills, Div, Img, Section, Box, Span, BoxImages } from './styled-components/app';
+import {
+  Button,
+  Title,
+  Header,
+  SectionSkills,
+  Div,
+  Img,
+  Section,
+  Box,
+  Span,
+  BoxImages,
+  Li,
+  Arrow,
+  Cards,
+  Projetos,
+  CardBox
+} from './styled-components/app';
 
 
 function App() {
-  const { dropDownRef, onClick, isActive } = useIndex();
-  document.title = 'Home - Yan Brasileiro'
+  document.title = 'Yan Brasileiro'
+  const { onClick, isActive } = useIndex();
+
+
+  const ClickScroll = () => {
+    console.log('cliquei');
+    const to = window.document.getElementById('Skills').offsetTop;
+    window.scroll({
+      top: to,
+      behavior: "smooth",
+    });
+  }
+
   return (
     <>
-      <Button onClick={onClick}> Menu </Button>
+      <Button onClick={onClick} />
       {isActive &&
-        <Header ref={dropDownRef} id={'nav'}>
+        <Header id={'nav'}>
           <ul>
-            <li> <a href='#home'> Home </a> </li>
-            <li> <a href='#skills'> Skills </a> </li>
-            <li> <a href='#contato'> Contato </a> </li>
-            <li> <a href='#nav'> Sobre </a> </li>
+            <Li> <a href='#home'> Home </a> </Li>
+            <Li> <a href='#Skills'> Skills </a> </Li>
+            <Li> <a href='#Projetos'> Projetos </a> </Li>
+            <Li> <a href='#nav'> Sobre </a> </Li>
           </ul>
         </Header>}
       <Div id='home'>
@@ -28,10 +55,11 @@ function App() {
               }} />
           </Span>
         </Section>
+        <Arrow onClick={ClickScroll} />
       </Div>
-      <BoxImages>
-        <Title id={'skills'}> Tecnologias Adquiridas </Title>
-        <SectionSkills id={'skills'}>
+      <BoxImages id='Skills'>
+        <Title> Tecnologias Adquiridas </Title>
+        <SectionSkills>
           <Box><Img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg' alt='typescript' /></Box>
           <Box><Img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg' alt='react' /></Box>
           <Box><Img src='https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain-wordmark.svg' alt='bootStrap' /></Box>
@@ -46,6 +74,16 @@ function App() {
           <Box><Img src='https://styled-components.com/atom.png' alt='styledComponents' /></Box>
         </SectionSkills>
       </BoxImages>
+      <Projetos id='Projetos'>
+        <Title> Projetos</Title>
+        <CardBox>
+          <Cards>A</Cards>
+          <Cards>A</Cards>
+          <Cards>A</Cards>
+          <Cards>A</Cards>
+        </CardBox>
+
+      </Projetos>
     </>
   );
 }

@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import imagemB from '../imagens/1.jpg';
+import { Menu } from "styled-icons/material";
+import { KeyboardArrowDown } from 'styled-icons/material-outlined';
 
 const Div = styled.div`
   height: 99.65vh;
@@ -12,38 +14,33 @@ const Div = styled.div`
 `;
 
 const Title = styled.h1`
-  font-size: 4em;
+  font-size: 3em;
   text-align: center;
   color: palevioletred;
-  border: solid 1px;
 `;
- 
+
 const BoxImages = styled.div`
   height: 100vh;
-  overflow: auto;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  border: solid 1px ;
   justify-content: space-around;
+  overflow: auto;
  
  `;
 
 const Box = styled.div`
-width: 100px;
-height: 100px;
-border: solid 1px;
+width: 80px;
+height: 80px;
 
 &:hover{
-transform: scale(1.5); 
+transform: scale(1.5);
 }`;
 
 const Img = styled.img`
-max-width: 100px;
-max-height: 100px;
-border-radius: 20px;
-border: solid 1px;
-
+max-width: 80px;
+max-height: 80px;
+border-radius: 10px;
 `;
 
 const Section = styled.section`
@@ -54,7 +51,7 @@ const SectionSkills = styled.section`
   justify-content: center;
   display: grid;
   justify-items: center;  
-  grid: repeat(3, 120px) / auto-flow 150px;
+  grid: repeat(3, 100px) / auto-flow 110px;
   
   @media (max-width: 600px) {
     grid: repeat(4, 120px) / auto-flow 150px;
@@ -72,25 +69,80 @@ const SectionSkills = styled.section`
 const Span = styled.span`
   color: #c43636;
   font-size: 40px;
-  text-shadow: 0px 14px 5px black;`;
+  text-shadow: 0px 14px 5px black;
+`;
 
 const Header = styled.nav`
  position: fixed;
- margin: 15px 0 0 92%;
+ right: 8px;
+ top: 20px;
 `;
 
-const Button = styled.button`
-  position: fixed;
-  background: papayawhip;
-  color: black;
-  margin: 0 0 0 95%;
-  padding: 5px;
-  font-size: 13px;
-  border-radius: 10%;
+const Button = styled(Menu)`
+position: fixed;
+color: #f4efef;
+right: 32px;
+max-width: 30px;
+border-radius: 50%;
+border: solid 1px;
+
+`;
+
+const Arrow = styled(KeyboardArrowDown)`
+  max-width: 30px;
+  position: absolute;
+  bottom: 20px;
+  animation: anima-seta 1000ms ease infinite;
+
+  @keyframes anima-seta {
+    to {
+        opacity:1;
+        transform: translateY(18px);
+    }
+  }
+`;
+
+const Li = styled.li`
+  list-style-type: none;
+>* {
   text-decoration: none;
+  color: gray;
+  font-size: 14px;
+}
+
+`;
+
+const Projetos = styled.section`
+display: flex;
+height: 100vh;
+border: solid 1px;
+flex-direction: column;
+align-items: center;
+
+`;
+
+const CardBox = styled.div`
+border: solid 1px;
+display: flex;
+max-width: 900px;
+flex-wrap: wrap;
+align-items: center;
+justify-content: space-between;
+`;
+
+const Cards = styled.div`
+width: 400px;
+height: 400px;
+margin: 10px;
+border: solid 1px;
 `;
 
 export {
+  CardBox,
+  Cards,
+  Projetos,
+  Arrow,
+  Li,
   BoxImages,
   Span,
   SectionSkills,
